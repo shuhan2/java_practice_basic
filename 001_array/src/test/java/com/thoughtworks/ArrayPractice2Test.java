@@ -10,6 +10,6 @@ class ArrayPractice2Test {
         int[] result = ArrayPractice2.exchange();
         int[] excepted = new int[]{20, 8, 1, 7, 0, 10, 16, 19};
 
-        assertEquals(excepted, result);
+        assertArrayEquals(excepted, result);
     }
 }

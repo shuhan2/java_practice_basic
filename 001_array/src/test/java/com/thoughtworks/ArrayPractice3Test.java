@@ -13,7 +13,7 @@ class ArrayPractice3Test {
 
         int[] except = new int[]{1, 3, 4, 5, 6, 6, 5, 4, 7, 6, 7, 5};
 
-        assertEquals(except, result);
+        assertArrayEquals(except, result);
     }
 
     @Test
@@ -23,7 +23,7 @@ class ArrayPractice3Test {
 
         int[] except = new int[]{1, 3, 4, 5};
 
-        assertEquals(except, result);
+        assertArrayEquals(except, result);
     }
 
     @Test
@@ -33,6 +33,6 @@ class ArrayPractice3Test {
 
         int[] except = new int[]{};
 
-        assertEquals(except, result);
+        assertArrayEquals(except, result);
     }
 }
