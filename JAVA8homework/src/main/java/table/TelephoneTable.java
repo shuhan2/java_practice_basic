@@ -2,15 +2,17 @@ package table;
 
 import java.util.Objects;
 
-public class EmailTableSAP {
+public class TelephoneTable {
 
   private String masterNumber;
+  private String countryCode;
 
-  private String emailAddress;
+  private String telephoneNumber;
 
-  public EmailTableSAP(String masterNumber, String emailAddress) {
+  public TelephoneTable(String masterNumber, String countryCode, String telephoneNumber) {
     this.masterNumber = masterNumber;
-    this.emailAddress = emailAddress;
+    this.countryCode = countryCode;
+    this.telephoneNumber = telephoneNumber;
   }
 
   public String getMasterNumber() {
@@ -29,13 +31,15 @@ public class EmailTableSAP {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EmailTableSAP that = (EmailTableSAP) o;
+    TelephoneTable that = (TelephoneTable) o;
     return Objects.equals(masterNumber, that.masterNumber) &&
-        Objects.equals(emailAddress, that.emailAddress);
+        Objects.equals(countryCode, that.countryCode) &&
+        Objects.equals(telephoneNumber, that.telephoneNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(masterNumber, emailAddress);
+    return Objects.hash(masterNumber, countryCode, telephoneNumber);
   }
 }
+

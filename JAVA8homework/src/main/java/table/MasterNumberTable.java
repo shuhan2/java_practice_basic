@@ -2,11 +2,11 @@ package table;
 
 import java.util.Objects;
 
-public class GeneralDataTableSAP  {
+public class MasterNumberTable {
 
   private String number;
 
-  public GeneralDataTableSAP(String number) {
+  public MasterNumberTable(String number) {
     this.number = number;
   }
 
@@ -22,7 +22,7 @@ public class GeneralDataTableSAP  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GeneralDataTableSAP that = (GeneralDataTableSAP) o;
+    MasterNumberTable that = (MasterNumberTable) o;
     return number.equals(that.number);
   }
 

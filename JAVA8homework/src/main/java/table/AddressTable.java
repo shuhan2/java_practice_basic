@@ -2,7 +2,7 @@ package table;
 
 import java.util.Objects;
 
-public class AddressTableSAP {
+public class AddressTable {
 
   private String masterNumber;
 
@@ -12,7 +12,7 @@ public class AddressTableSAP {
 
   private String street;
 
-  public AddressTableSAP(String masterNumber, String country, String city, String street) {
+  public AddressTable(String masterNumber, String country, String city, String street) {
     this.masterNumber = masterNumber;
     this.country = country;
     this.city = city;
@@ -21,10 +21,6 @@ public class AddressTableSAP {
 
   public String getMasterNumber() {
     return masterNumber;
-  }
-
-  public String getCountry() {
-    return country;
   }
 
   public String getStreet() {
@@ -47,7 +43,7 @@ public class AddressTableSAP {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AddressTableSAP that = (AddressTableSAP) o;
+    AddressTable that = (AddressTable) o;
     return Objects.equals(masterNumber, that.masterNumber) &&
         Objects.equals(country, that.country) &&
         Objects.equals(city, that.city) &&
