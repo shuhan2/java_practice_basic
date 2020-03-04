@@ -1,7 +1,6 @@
 package entity;
 
 import org.junit.jupiter.api.Test;
-import table.AddressTable;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -9,21 +8,21 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class PersonTest {
 
   @Test
-  void should_return_address_without_country_and_region_when_get_address_given_address_table() {
+  void should_return_address_without_country_and_region_when_get_address_given_address() {
     Person person = new Person("1234",
-                               null, new AddressTable("1234", "country", "city", "street"), null);
+                               null, new Address("1234", "country", "city", "street"), null);
 
-    Address expected = new Address("street", "city");
+    SimpleAddress expected = new SimpleAddress("street", "city");
 
-    Address actual = person.getAddress().orElse(new Address());
+    SimpleAddress actual = person.getSimpleAddress().orElse(new SimpleAddress());
 
     assertEquals(expected, actual);
   }
 
   @Test
-  void should_return_empty_when_get_address_given_address_table_null() {
+  void should_return_empty_when_get_address_given_address_null() {
     //Then
-    assertFalse(new Person().getAddress().isPresent());
+    assertFalse(new Person().getSimpleAddress().isPresent());
   }
 
 }

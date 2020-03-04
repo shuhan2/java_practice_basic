@@ -1,66 +1,42 @@
 package entity;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
-import table.AddressTable;
-import table.EmailTable;
-import table.TelephoneTable;
 
 public class Person {
 
   private String masterNumber;
-  private AddressTable addressTable;
+  private Address address;
 
-  private List<TelephoneTable> telephoneTables;
+  private List<Telephone> telephones;
 
-  private List<EmailTable> emailTables;
+  private List<Email> emails;
 
   public Person() {
   }
 
-  public Person(String masterNumber, List<TelephoneTable> telephoneTables, AddressTable addressTable,
-                List<EmailTable> emailTables) {
+  public Person(String masterNumber, List<Telephone> telephones, Address address,
+                List<Email> emails) {
     this.masterNumber = masterNumber;
-    this.addressTable = addressTable;
-    this.telephoneTables = telephoneTables;
-    this.emailTables = emailTables;
+    this.address = address;
+    this.telephones = telephones;
+    this.emails = emails;
   }
 
-  public Optional<Address> getAddress() {
-    return Optional.ofNullable(addressTable)
-        .map(address -> new Address(address.getStreet(), address.getCity()));
+  public Optional<SimpleAddress> getSimpleAddress() {
+    //TODO: return Optional<SimpleAddress>
+    return null;
   }
 
-  public AddressTable getAddressTable() {
-    return addressTable;
+  public Address getAddress() {
+    return address;
   }
 
-  public List<EmailTable> getEmailTables() {
-    return emailTables;
+  public List<Email> getEmails() {
+    return emails;
   }
 
-  public List<TelephoneTable> getTelephoneTables() {
-    return telephoneTables;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Person that = (Person) o;
-    return masterNumber.equals(that.masterNumber) &&
-        addressTable.equals(that.addressTable) &&
-        telephoneTables.equals(that.telephoneTables) &&
-        emailTables.equals(that.emailTables);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(masterNumber, addressTable, telephoneTables, emailTables);
+  public List<Telephone> getTelephones() {
+    return telephones;
   }
 }
