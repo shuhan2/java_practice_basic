@@ -3,10 +3,16 @@ import entity.Email;
 import entity.MasterNumber;
 import entity.Person;
 import entity.Telephone;
+import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.groupingBy;
+
 public class PersonSet {
+
   private List<MasterNumber> masterNumbers;
 
   private List<Address> addresses;
@@ -27,9 +33,21 @@ public class PersonSet {
 
   public Stream<Person> groupToPeople() {
     // TODO: group the data to Stream<Person>
-    // Can use Collectors.groupingBy method
-    // Can add helper method
-   return null;
+    Map<String, List<Telephone>> telephoneMap = telephones.stream().collect(groupingBy(Telephone::getMasterNumber));
+    Map<String, List<Address>> addressMap = addresses.stream().collect(groupingBy(Address::getMasterNumber));
+    Map<String, List<Email>> emailMap = emails.stream().collect(groupingBy(Email::getMasterNumber));
+    return masterNumbers.stream().map(masterNumber -> {
+      String number = masterNumber.getNumber();
+      return new Person(number, telephoneMap.getOrDefault(number, new ArrayList<>()), buildAddress(addressMap, number), emailMap.getOrDefault(number, new ArrayList<>()));
+    });
+  }
+
+  private Address buildAddress(Map<String, List<Address>> addressMap, String number) {
+    List<Address> list = addressMap.getOrDefault(number, new ArrayList<>());
+    if (list.size() == 0) {
+      return null;
+    }
+    return list.get(0);
   }
 
   public List<Address> getAddresses() {
