@@ -20,7 +20,6 @@ public class PersonService {
   public Stream<Person> getPersonByMasterNumbers(List<MasterNumber> numbers) {
     //TODO: Add the code to return people by numbers
     // Use groupToPeople() method
-    // You can add helper method
     return null;
   }
 
