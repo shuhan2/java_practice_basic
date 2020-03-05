@@ -1,8 +1,8 @@
+import entity.MasterNumber;
 import entity.Person;
 import java.util.Arrays;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
-import entity.MasterNumber;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,9 +13,8 @@ class PersonServiceTest {
     PersonService personService = new PersonService();
 
     Stream<Person> person = personService.getPersonByMasterNumbers(Arrays.asList(new MasterNumber("1")));
-    Stream<Person> expectedPerson = Stream.of(PersonDataProvider.providePersonWithNumber1());
 
-    assertEquals(expectedPerson, person);
+    assertEquals(PersonDataProvider.providePersonWithNumber1(), person.findAny().get());
   }
 
   @Test
@@ -23,8 +22,7 @@ class PersonServiceTest {
     PersonService personService = new PersonService();
 
     Stream<Person> person = personService.getPersonByMasterNumbers(Arrays.asList(new MasterNumber("3")));
-    Stream<Person> expectedPerson = Stream.empty();
 
-    assertEquals(expectedPerson, person);
+    assertEquals(0, person.count());
   }
 }
