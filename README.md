@@ -12,6 +12,7 @@
 提示：
 1. 数据存储在PersonService中 
 2. 找到用户零散的信息后通过各自的编号组装成完整的数据
+3. 可以重写equals()和hashcode()方法，添加getter方法
 
 **使用简介**  
 1. 如何导入gradle项目(现在不要求掌握什么是gradle)
