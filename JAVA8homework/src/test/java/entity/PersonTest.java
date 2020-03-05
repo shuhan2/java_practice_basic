@@ -21,8 +21,6 @@ class PersonTest {
 
   @Test
   void should_return_empty_when_get_address_given_address_null() {
-    //Then
     assertFalse(new Person().getSimpleAddress().isPresent());
   }
-
 }
